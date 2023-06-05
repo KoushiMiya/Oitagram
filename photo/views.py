@@ -47,17 +47,8 @@ class CreatePhotoView(CreateView):
     template_name:レンダリングするテンプレート
     success_url:データベースへの登録完了後へのリダイレクト先
   '''
-#p449で追加
-class PostSuccessView(TemplateView):
-  '''投稿完了ページのビュー
 
-      Attributes:
-        template_name:レンダリングするテンプレート
-  ''' 
-  #index.htmlをレンダリングする
-  template_name = 'post_success.html'
-
-  #forms.pyのPhotoPostFormをフォームクラスとして登録
+ #forms.pyのPhotoPostFormをフォームクラスとして登録
   form_class = PhotoPostForm
   #レンダリングするテンプレート
   template_name = "post_photo.html"
@@ -74,6 +65,18 @@ class PostSuccessView(TemplateView):
     postdata.save()
     #戻り値はスーパークラスのform_validの戻り値
     return super().form_valid(form)
+
+#p449で追加
+class PostSuccessView(TemplateView):
+  '''投稿完了ページのビュー
+
+      Attributes:
+        template_name:レンダリングするテンプレート
+  ''' 
+  #index.htmlをレンダリングする
+  template_name = 'post_success.html'
+
+  
 
 class CategoryView(ListView):
     '''カテゴリページのビュー
@@ -98,7 +101,7 @@ class CategoryView(ListView):
         '''
         # self.kwargsでキーワードの辞書を取得し、
         # categoryキーの値(Categoryテーブルのid)を取得
-        category_id = self.self.kwargs['category']
+        category_id = self.kwargs['category']
         # filter(フィールド名=id)で絞り込む
         categories = PhotoPost.objects.filter(
             category = category_id).order_by('-posted_at')

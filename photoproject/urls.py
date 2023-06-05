@@ -43,7 +43,7 @@ urlpatterns = [
     
     # メール送信完了ページ
     path('password_reset/done/',
-         auth_views.PasswordChangeDoneView.as_view(
+         auth_views.PasswordResetDoneView.as_view(
              template_name = "password_reset_sent.html"),
              name = 'password_reset_done'),
     
