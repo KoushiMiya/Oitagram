@@ -45,6 +45,7 @@ class PhotoPost(models.Model):
 #コメント用のフィールド
     comment = models.TextField(
         verbose_name='コメント', #フィールドのタイトル
+        blank=True,            #フィールド値の設定は必須でない
         )
     #イメージのフィールド1
     image1 = models.ImageField(

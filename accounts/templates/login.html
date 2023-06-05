@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Log in</title>
+    <title>ログインページ</title>
 
     <link rel="icon" type="image/x-icon"
           href={% static 'assets/favicon.ico' %} />
@@ -48,7 +48,7 @@
      {% endif %}
       <form method="post">
         {% csrf_token %}
-       <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+       <img class="mb-4" src={% static "img/bootstrap-logo.svg" %} alt="ロゴの表示" width="72" height="57">
        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
        <label for="Username" class="visually_hidden">
@@ -56,7 +56,7 @@
        <input type="text"
            name="username"
            id="id_username"
-           maxlength="150"
+           maxlength="30"
            autocapitalize="none"
            autocomplete="username"
            class="form-control"

@@ -1,6 +1,6 @@
 <!--ベーステンプレートを適用する-->
 {% extends 'base.html' %}
-{% block title %}Mypage{% endblock %}
+{% block title %}マイページ{% endblock %}
 
     {% block contents %}
 
@@ -16,7 +16,8 @@
             {% else %}
                 <p>投稿<strong>{{object_list.count}}</strong>件</p>
             {% endif %}
-            <a href = "{% url 'photo:post' %}">投稿する</a>
+            {% load static %}
+                <a href = "{% url 'photo:post' %}"><img src={% static "img/toukoubotan.svg" %} alt="ロゴの表示" width="150" height="auto"></font></a>
         </div>
     <hr>
     {% endif %}
