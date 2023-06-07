@@ -17,8 +17,6 @@ from django.contrib.auth.decorators import login_required
 from .models import PhotoPost
 #django.views.genericからDetailViewをインポート
 from django.views.generic import DeleteView
-#django.views.genericからDeleteViewをインポート
-from django.views.generic import DeleteView
 
 #P455　　(TemplateView)から(ListView)に変更
 class IndexView(ListView):

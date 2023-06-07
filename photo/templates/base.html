@@ -9,10 +9,6 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>{% block title %}{% endblock %}</title>
 
-
-
-    
-
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -53,90 +49,42 @@
 
       /*ここまで*/
 
-      /*カルーセル機能の追加*/
-    
-      * {
-        box-sizing: border-box;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      body {
-      padding: 30px 50px;
-      }
-      h1 {
-      margin-bottom: 100px;
-      }
-      h2 {
-      margin-bottom: 50px;
-      }
-      /* スライドする要素 */
-      .content {
-      width: 300px;
-      height: 230px;
-      }
-      .content:nth-child(1) {
-      background-color: #9acd32;
-      }
-      .content:nth-child(2) {
-      background-color: #729925;
-      }
-      .content:nth-child(3) {
-      background-color: #ccad00;
-      }
-      .content:nth-child(4) {
-      background-color: green;
-      }
-      /* スライドレールの枠 */
-      .wrap {
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      height: 340px;
-      margin-bottom: 100px;
-      }
-      /* content4つをまとめたスライドブロック */
-      .slideshow {
-      display: flex;
-      -webkit-animation: loop-slide 20s infinite linear 1s both;
-      animation: loop-slide 20s infinite linear 1s both;
-      }
-      @-webkit-keyframes loop-slide {
-      from {
-          transform: translateX(0);
-      }
-      to {
-          transform: translateX(-100%);
-      }
-      }
-      @keyframes loop-slide {
-      from {
-          transform: translateX(0);
-      }
-      to {
-          transform: translateX(-100%);
-      }
-      }
-      /* ホバー時に動きを止める（パターン2・3）*/
-      .slide-paused:hover .slideshow {
-      -webkit-animation-play-state: paused;
-      animation-play-state: paused;
-      }
-      /* ホバー時の装飾（パターン3） */
-      .content-hover {
-      transition: all 0.2s;
-      margin-right: 20px;
-      }
-      .content-hover:hover {
-      transform: translateY(-20px);
-      border-radius: 0 10%;
-      box-shadow: 0 3px 10px 0 #333;
-      opacity: 0.8;
-      cursor: pointer;
+      /*viewボタン、カテゴリボタンの表示*/
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
       }
 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+        }
+      }
 
-      /*カルーセルここまで*/
+      .btn-view {
+      padding: 10px 20px;
+      background-color: rgb(189,211,77);
+        border-bottom: solid 5px gray;
+        border-radius: 4px;
+      }
+      .btn-view:active{
+        -webkit-transform: translateY(5px);
+        transform: transformY(5px);
+        border-bottom: none;
+      }
+      #navbarHeader {
+        background-color: #729925!important;
+      }
+      .header-color {
+        background-color: #9acd32!important;
+      }
+      .footer-color {
+        background-color: #9acd32!important;
+      }
+
     </style>
 
     
@@ -148,12 +96,14 @@
         <a href="{% url 'photo:index'%}">トップページに戻る</a>
       </p>
     </div>
-  -->
+    -->
+
+
 <!--ページのヘッダー-->    
 <header>
   <!--ナビゲーションバーのヘッダー-->
   <!--ヘッダーの色-->
-  <div class="collapse bg-success" id="navbarHeader">
+  <div class="collapse" id="navbarHeader">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
@@ -188,12 +138,12 @@
       </div>
     </div>
   </div>
-  <div class="navbar navbar-light bg-success shadow-sm">
+  <div class="navbar navbar-light bg-success shadow-sm header-color">
     <div class="container">
       <a href="{% url 'photo:index' %}" 
          class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong><font face = "Comic Sans MS"; class="text-white" size = "5">Oitagram</font></strong>
+         <img src={% static "img/めじろん.png" %} alt="めじろんの表示" width="50" height="auto">
+        <strong><font face = "Comic Sans MS"; class="text-white" size = "6">Oitagram</font></strong>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -203,305 +153,24 @@
 </header>
 
 <main>
-<div class="wrap">
-  <ul class="slideshow">
-      <li class="content">
-        {% for record in object_list %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-            <img src="{{ record.image1.url }}"
-              class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-              which="100%" height="300"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img" aria-label="Placeholder: Thumbnail"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"/>
-              <!--<text>~</text>を削除-->
-            </img>
-          </div>
-        </div> 
-        {% endfor %} 
-      </li>
-      <li class="content">
-        {% for record in object_list %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-            <img src="{{ record.image1.url }}"
-              class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-              which="100%" height="300"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img" aria-label="Placeholder: Thumbnail"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"/>
-              <!--<text>~</text>を削除-->
-            </img>
-          </div>
-        </div> 
-        {% endfor %} 
-      </li>
-      <li class="content">
-        {% for record in object_list %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-            <img src="{{ record.image1.url }}"
-              class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-              which="100%" height="300"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img" aria-label="Placeholder: Thumbnail"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"/>
-              <!--<text>~</text>を削除-->
-            </img>
-          </div>
-        </div> 
-        {% endfor %} 
-      </li>
-      <li class="content">
-        {% for record in object_list %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-            <img src="{{ record.image1.url }}"
-              class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-              which="100%" height="300"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img" aria-label="Placeholder: Thumbnail"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c"/>
-              <!--<text>~</text>を削除-->
-            </img>
-          </div>
-        </div> 
-        {% endfor %} 
-      </li>
-  </ul>
-  <ul class="slideshow">
-    <li class="content">
-      {% for record in object_list %}
-      <div class="col">
-        <div class="card shadow-sm">
-          <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-          <img src="{{ record.image1.url }}"
-            class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-            which="100%" height="300"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Thumbnail"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c"/>
-            <!--<text>~</text>を削除-->
-          </img>
-        </div>
-      </div> 
-      {% endfor %} 
-    </li>
-    <li class="content">
-      {% for record in object_list %}
-      <div class="col">
-        <div class="card shadow-sm">
-          <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-          <img src="{{ record.image1.url }}"
-            class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-            which="100%" height="300"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Thumbnail"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c"/>
-            <!--<text>~</text>を削除-->
-          </img>
-        </div>
-      </div> 
-      {% endfor %} 
-    </li>
-    <li class="content">
-      {% for record in object_list %}
-      <div class="col">
-        <div class="card shadow-sm">
-          <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-          <img src="{{ record.image1.url }}"
-            class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-            which="100%" height="300"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Thumbnail"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c"/>
-            <!--<text>~</text>を削除-->
-          </img>
-        </div>
-      </div> 
-      {% endfor %} 
-    </li>
-    <li class="content">
-      {% for record in object_list %}
-      <div class="col">
-        <div class="card shadow-sm">
-          <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-          <img src="{{ record.image1.url }}"
-            class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-            which="100%" height="300"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Thumbnail"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c"/>
-            <!--<text>~</text>を削除-->
-          </img>
-        </div>
-      </div> 
-      {% endfor %} 
-    </li>
-  </ul>
-  <ul class="slideshow">
-    <li class="content">
-      {% for record in object_list %}
-      <div class="col">
-        <div class="card shadow-sm">
-          <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-          <img src="{{ record.image1.url }}"
-            class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-            which="100%" height="300"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Thumbnail"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c"/>
-            <!--<text>~</text>を削除-->
-          </img>
-        </div>
-      </div> 
-      {% endfor %} 
-    </li>
-    <li class="content">
-      {% for record in object_list %}
-      <div class="col">
-        <div class="card shadow-sm">
-          <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-          <img src="{{ record.image1.url }}"
-            class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-            which="100%" height="300"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Thumbnail"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c"/>
-            <!--<text>~</text>を削除-->
-          </img>
-        </div>
-      </div> 
-      {% endfor %} 
-    </li>
-    <li class="content">
-      {% for record in object_list %}
-      <div class="col">
-        <div class="card shadow-sm">
-          <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-          <img src="{{ record.image1.url }}"
-            class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-            which="100%" height="300"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Thumbnail"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c"/>
-            <!--<text>~</text>を削除-->
-          </img>
-        </div>
-      </div> 
-      {% endfor %} 
-    </li>
-    <li class="content">
-      {% for record in object_list %}
-      <div class="col">
-        <div class="card shadow-sm">
-          <!--svgタグをimgに変更、src属性を追加して１枚目のイメージのURLを設定-->
-          <img src="{{ record.image1.url }}"
-            class="bd-placeholder-img card-img-top" onclick="location.href='{% url 'photo:photo_detail' record.pk %}'"
-            which="100%" height="300"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Thumbnail"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c"/>
-            <!--<text>~</text>を削除-->
-          </img>
-        </div>
-      </div> 
-      {% endfor %} 
-    </li>
-  </ul>
-</div> 
 {% block contents %}{% endblock %}
 </main>
 
-<footer class="text-muted bg-success py-5">
-  <!-- <div class="container">
-    <p class="float-end mb-1">
-      <a href="{% url 'photo:index'%}">トップページに戻る</a>
-    </p>
-  -->
+<footer class="text-muted bg-success py-5 footer-color">
+  {% load static %}
     <p class="mb-1 text-white" ><font face = "Comic Sans MS"; class = "text-white">Oitagram</font>は &copy; A groupによって作成されました</p>
   </div> 
  
   <!-- ここをコメントアウトして、54行目を追加すると「トップページボタン」が画像の後ろに行く -->
   <div class="right-fixed-banner">
     <p class="float-end mb-1">
-      <button type="button" class="btn btn-primary"><a href="{% url 'photo:index'%}" class="text-white">トップページに戻る</a></button>
+      <button type="button" class="btn "><a href="{% url 'photo:index'%}" class="text-white"><img src={% static "img/トップページに戻る.svg" %} alt="トップページに戻るボタン" width="150" height="40"></a></button>
     </p>
   </div>
 </footer>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-{% comment %} <div class="wrap">
-  <ul class="slideshow">
-      <li class="content">tomato</li>
-      <li class="content">orange</li>
-      <li class="content">blue</li>
-      <li class="content">green</li>
-  </ul>
-  <ul class="slideshow">
-      <li class="content">tomato</li>
-      <li class="content">orange</li>
-      <li class="content">blue</li>
-      <li class="content">green</li>
-  </ul>
-  <ul class="slideshow">
-      <li class="content">tomato</li>
-      <li class="content">orange</li>
-      <li class="content">blue</li>
-      <li class="content">green</li>
-  </ul>
-</div> {% endcomment %}
-      
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>      
   </body>
 </html>
-
-
-{% comment %} class="bd-placeholder-img card-img-top"
-which="100%" height="225"
-xmlns="http://www.w3.org/2000/svg"
-role="img" aria-label="Placeholder: Thumbnail"
-preserveAspectRatio="xMidYMid slice"
-focusable="false"> {% endcomment %}

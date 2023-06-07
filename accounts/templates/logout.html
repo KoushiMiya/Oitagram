@@ -4,6 +4,7 @@
 {% block title %}ログアウトページ{% endblock %}
 
     {% block contents %}
+    {% load static %}
     <!--Bootstrapのグリッドシステム-->
     <div class="container">
         <!--行を配置-->
@@ -13,5 +14,5 @@
 
             <h3>ログアウトしました</h3>
             <!--トップページのリンクテキスト-->
-            <p><a href="{% url 'photo:index'%}">トップページへ</a><p>
+            <p><a href="{% url 'photo:index'%}"><img src={% static "img/トップページに戻る.svg" %} alt="トップページに戻るボタン" width="150" height="40"></a><p>
     {% endblock %}
