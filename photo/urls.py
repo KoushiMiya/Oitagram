@@ -53,4 +53,5 @@ urlpatterns = [
          views.PhotoDeleteView.as_view(),
          name = 'photo_delete'
         ),
+
 ]

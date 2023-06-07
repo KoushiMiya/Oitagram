@@ -24,7 +24,12 @@
                         {{ field }}
                         <!-- help_textを出力-->
                         {% if field.help_text %}
-                        <small style="color: grey">{{ field.help_text }}</small>
+                            {% if field.help_text != "この項目は必須です。半角アルファベット、半角数字、@/./+/-/_ で150文字以下にしてください。" %}
+                            <small style="color: grey">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% if field.help_text == "この項目は必須です。半角アルファベット、半角数字、@/./+/-/_ で150文字以下にしてください。" %}
+                            <small style="color: grey">30文字以下にしてください。</small>
+                            {% endif %}
                         {% endif %}
                         <!--エラー発生時のテキストerrorsを出力-->
                         {% for error in field.errors %}

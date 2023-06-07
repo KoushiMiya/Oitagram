@@ -22,11 +22,6 @@
         user-select: none;
       }
 
-      .img-size {
-        height: 225;
-        width: 40%;
-      }
-
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -83,6 +78,11 @@
       }
       .footer-color {
         background-color: #9acd32!important;
+      }
+      
+      .img-size {
+        height: 225!important;
+        width: auto!important;
       }
 
     </style>
@@ -158,7 +158,7 @@
 
 <footer class="text-muted bg-success py-5 footer-color">
   {% load static %}
-    <p class="mb-1 text-white" ><font face = "Comic Sans MS"; class = "text-white">Oitagram</font>は &copy; A groupによって作成されました</p>
+    <p class="mb-1 text-white" ><font face = "Comic Sans MS"; class = "text-white">　Oitagram</font>は &copy; A groupによって作成されました</p>
   </div> 
  
   <!-- ここをコメントアウトして、54行目を追加すると「トップページボタン」が画像の後ろに行く -->
@@ -167,6 +167,36 @@
       <button type="button" class="btn "><a href="{% url 'photo:index'%}" class="text-white"><img src={% static "img/トップページに戻る.svg" %} alt="トップページに戻るボタン" width="150" height="40"></a></button>
     </p>
   </div>
+  <!--ここまで-->
+    <ul class = "list-inline text-center">
+      <li class = "list-inline-item">
+        <a href = "https://twitter.com/">
+          <img src={% static "img/twitter.png" %} alt="twitterのアイコン" width="50" height="50">
+          <span class = "fa-stack fa-lg">
+            <i class = "fas fa-circle ca-stack-2x"></li>
+            <i class = "fab fa-twitter fa-stack-1x fa-inverse"></li>
+          </span>
+        </a>
+      </li>
+      <li class = "list-inline-item">
+        <a href = "https://www.facebook.com/">
+          <img src={% static "img/facebook.png" %} alt="Facebookのアイコン" width="48" height="48">
+          <span class = "fa-stack fa-lg">
+            <i class = "fas fa-circle fa-stack-2x"></li>
+            <i class = "fab fa-facebook-f fa-stack-1x fa-inverse"></li> 
+          </span>
+        </a>
+      </li>
+      <li class = "list-inline-item">
+        <a href = "https://www.instagram.com/">
+          <img src={% static "img/instagram.png" %} alt="Facebookのアイコン" width="50" height="50">
+          <span class = "fa-stack fa-lg">
+            <i class = "fas fa-circle fa-stack-2x"></i>
+            <i class = "fab fa-instagram fa-stack-1x  fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+    </ul>    
 </footer>
 
 
