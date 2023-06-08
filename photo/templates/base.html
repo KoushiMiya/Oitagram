@@ -98,11 +98,11 @@
   </head>
   <body>
     <!-- 「トップページに戻るボタン」が画像の裏に入るようにする。-->
-    {% comment %} <div class="right-fixed-banner">
+    <div class="right-fixed-banner">
       <p class="float-end mb-1">
         <a href="{% url 'photo:index'%}" class="text-white"><img src={% static "img/トップページに戻る.svg" %} alt="トップページに戻るボタン" width="150" height="40"></a>
       </p>
-    </div> {% endcomment %}
+    </div> 
    <!---->
 
 
@@ -172,11 +172,11 @@
   </div> 
  
   <!-- ここをコメントアウトして、54行目を追加すると「トップページボタン」が画像の後ろに行く -->
-  <div class="right-fixed-banner">
+  {% comment %} <div class="right-fixed-banner">
     <p class="float-end mb-1">
       <button type="button" class="btn "><a href="{% url 'photo:index'%}" class="text-white"><img src={% static "img/トップページに戻る.svg" %} alt="トップページに戻るボタン" width="150" height="40"></a></button>
     </p>
-  </div> 
+  </div>  {% endcomment %}
   <!--ここまで-->
     <ul class = "list-inline text-center">
       <li class = "list-inline-item">

@@ -123,8 +123,8 @@
             xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder: Thumbnail"
             preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-            onclick="location.href='{% url 'photo:photo_detail' object_list.0.pk %}'">
+            focusable="false">
+            <!--onclick="location.href='{% url 'photo:photo_detail' object_list.0.pk %}'"-->
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#55595c"/>
             {% endif %}
@@ -183,6 +183,7 @@
           </img>
           </li>
       </ul>
+      <!-- カルーセル２個目 -->
       <ul class="slideshow">
         <li class="content">
 
@@ -190,13 +191,13 @@
           {% if object_list.0.image1.url %}
           <img src="{{ object_list.0.image1.url }}"
           class="bd-placeholder-img card-img-top caruuseru" 
-          which="100%" height="300"
           xmlns="http://www.w3.org/2000/svg"
           role="img" aria-label="Placeholder: Thumbnail"
           preserveAspectRatio="xMidYMid slice"
-          focusable="false"
-          onclick="location.href='{% url 'photo:photo_detail' object_list.0.pk %}'">
-          <title>Placeholder</title>
+          focusable="false">
+          <!--ばぐにするところ
+            which="100%" height="300"
+            onclick="location.href='{% url 'photo:photo_detail' object_list.0.pk %}'"--> 
           <rect width="100%" height="100%" fill="#55595c"/>
           {% endif %}
 
@@ -207,7 +208,7 @@
           {% if object_list.1.image1.url %}
           <img src="{{ object_list.1.image1.url }}"
           class="bd-placeholder-img card-img-top caruuseru" 
-          which="100%" height="300"
+
           xmlns="http://www.w3.org/2000/svg"
           role="img" aria-label="Placeholder: Thumbnail"
           preserveAspectRatio="xMidYMid slice"
@@ -224,7 +225,7 @@
           {% if object_list.2.image1.url %}
           <img src="{{ object_list.2.image1.url }}"
           class="bd-placeholder-img card-img-top caruuseru" 
-          which="100%" height="300"
+
           xmlns="http://www.w3.org/2000/svg"
           role="img" aria-label="Placeholder: Thumbnail"
           preserveAspectRatio="xMidYMid slice"
@@ -241,7 +242,7 @@
           {% if object_list.3.image1.url %}
           <img src="{{ object_list.3.image1.url }}"
           class="bd-placeholder-img card-img-top caruuseru"
-          which="100%" height="300"
+
           xmlns="http://www.w3.org/2000/svg"
           role="img" aria-label="Placeholder: Thumbnail"
           preserveAspectRatio="xMidYMid slice"
@@ -261,29 +262,30 @@
           {% if object_list.0.image1.url %}
           <img src="{{ object_list.0.image1.url }}"
           class="bd-placeholder-img card-img-top caruuseru" 
-          which="100%" height="300"
+
           xmlns="http://www.w3.org/2000/svg"
           role="img" aria-label="Placeholder: Thumbnail"
           preserveAspectRatio="xMidYMid slice"
           focusable="false"
-          onclick="location.href='{% url 'photo:photo_detail' object_list.0.pk %}'">
+          onclick="location.href='{% url 'photo:photo_detail' object_list.0.pk %}'"> 
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#55595c"/>
           {% endif %}
 
         </img>
         </li>
+        <!-- カルーセル3個目 -->
         <li class="content">
           <!-- オブジェクトリストの2番目を取得 -->
           {% if object_list.1.image1.url %}
           <img src="{{ object_list.1.image1.url }}"
           class="bd-placeholder-img card-img-top caruuseru" 
-          which="100%" height="300"
+
           xmlns="http://www.w3.org/2000/svg"
           role="img" aria-label="Placeholder: Thumbnail"
           preserveAspectRatio="xMidYMid slice"
-          focusable="false"
-          onclick="location.href='{% url 'photo:photo_detail' object_list.1.pk %}'">
+          focusable="false">
+          <!--onclick="location.href='{% url 'photo:photo_detail' object_list.1.pk %}'"-->
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#55595c"/>
           {% endif %}
@@ -295,7 +297,7 @@
           {% if object_list.2.image1.url %}
           <img src="{{ object_list.2.image1.url }}"
           class="bd-placeholder-img card-img-top caruuseru" 
-          which="100%" height="300"
+
           xmlns="http://www.w3.org/2000/svg"
           role="img" aria-label="Placeholder: Thumbnail"
           preserveAspectRatio="xMidYMid slice"
@@ -312,7 +314,7 @@
           {% if object_list.3.image1.url %}
           <img src="{{ object_list.3.image1.url }}"
           class="bd-placeholder-img card-img-top caruuseru"
-          which="100%" height="300"
+
           xmlns="http://www.w3.org/2000/svg"
           role="img" aria-label="Placeholder: Thumbnail"
           preserveAspectRatio="xMidYMid slice"
