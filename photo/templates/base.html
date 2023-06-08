@@ -97,13 +97,13 @@
     
   </head>
   <body>
-    <!-- 「トップページに戻るボタン」が画像の裏に入るようにする。
-    <div class="right-fixed-banner">
+    <!-- 「トップページに戻るボタン」が画像の裏に入るようにする。-->
+    {% comment %} <div class="right-fixed-banner">
       <p class="float-end mb-1">
-        <a href="{% url 'photo:index'%}">トップページに戻る</a>
+        <a href="{% url 'photo:index'%}" class="text-white"><img src={% static "img/トップページに戻る.svg" %} alt="トップページに戻るボタン" width="150" height="40"></a>
       </p>
-    </div>
-    -->
+    </div> {% endcomment %}
+   <!---->
 
 
 <!--ページのヘッダー-->    
@@ -127,7 +127,7 @@
 
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
+          <h4 class="text-white">Contents</h4>
           <ul class="list-unstyled">
             <!--ナビゲーションメニュー-->
             {% if user.is_authenticated %}
@@ -176,7 +176,7 @@
     <p class="float-end mb-1">
       <button type="button" class="btn "><a href="{% url 'photo:index'%}" class="text-white"><img src={% static "img/トップページに戻る.svg" %} alt="トップページに戻るボタン" width="150" height="40"></a></button>
     </p>
-  </div>
+  </div> 
   <!--ここまで-->
     <ul class = "list-inline text-center">
       <li class = "list-inline-item">

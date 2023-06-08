@@ -40,7 +40,7 @@ class PhotoPost(models.Model):
     #タイトル用のフィールド
     title = models.CharField(
         verbose_name='タイトル',#フィールドのタイトル
-        max_length=200  #最大文字数は200
+        max_length=30  #最大文字数は200
         )
 #コメント用のフィールド
     comment = models.TextField(

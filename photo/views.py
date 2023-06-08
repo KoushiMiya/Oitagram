@@ -29,7 +29,7 @@ class IndexView(ListView):
     queryset = PhotoPost.objects.order_by('-posted_at')
     #P464
     #1ページに表示するレコードの件数
-    paginate_by = 9
+    paginate_by = 12
 
 #デコレーターにより、CreatePhotoViewへのアクセスはログインユーザーに限定される
 # ログイン状態でなければsetting.pyのLOGIN_URLにリダイレクトされる 
@@ -86,7 +86,7 @@ class CategoryView(ListView):
     # index.htmlをレンタリングする
     template_name = 'index.html'
     # 1ページに表示するレコードの件数
-    paginate_by = 9
+    paginate_by = 12
 
     def get_queryset(self):
         '''クエリを実行する
@@ -115,7 +115,7 @@ class UserView(ListView):
     # index.htmlをレンタリングする
     template_name = 'index.html'
     #１ページに表示するレコードの件数
-    paginate_by = 9
+    paginate_by = 12
 
     def get_queryset(self):
         '''クエリを実行する
@@ -158,7 +158,7 @@ class MypageView(ListView):
     # mypage.htmlをレンタリングする
     template_name = 'mypage.html'
     # 1ページに表示するレコードの件数
-    paginate_by = 9
+    paginate_by = 12
 
     def get_queryset(self):
         '''クエリを実行する
