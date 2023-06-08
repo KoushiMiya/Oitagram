@@ -20,8 +20,15 @@
                     <p>
                         <!--ラベルを出力-->
                         {{ field.label_tag}}<br>
-                        <!--<input>タグを出力-->
+                        <!-- 入力文字数の制限 -->
+                        {% if field.help_text != "この項目は必須です。半角アルファベット、半角数字、@/./+/-/_ で150文字以下にしてください。" %}
                         {{ field }}
+                        {% endif %}
+        
+                        {% if field.help_text == "この項目は必須です。半角アルファベット、半角数字、@/./+/-/_ で150文字以下にしてください。" %}
+                        <input type="text" name="username" maxlength="30" autofocus="" required="" id="id_username">
+                        {% endif %}
+
                         <!-- help_textを出力-->
                         {% if field.help_text %}
                             {% if field.help_text != "この項目は必須です。半角アルファベット、半角数字、@/./+/-/_ で150文字以下にしてください。" %}

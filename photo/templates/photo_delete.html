@@ -12,7 +12,7 @@
             <!--行を配置-->
             <div class="row">
                 <!--列の左右に余白offset-1を入れる-->
-                <div class="col offset-1">
+
                     <!--タイトル-->
                     <h2>{{object.title}}</h2>
                     <!--コメント-->
@@ -26,26 +26,22 @@
                     {% if object.image2 %}
                       <p><img class = "img-size" src="{{object.image2.url}}"></img></p>
                     {% endif %}
-                </div>
             </div>
         </div>
         
-        <div class="container">
+        <div class="container text-center">
             <!--行を配置-->
             <div class="row">
-                <!--列の左右に余白offset-3を入れる-->
-                <div class="col offset-3">
+                <!--列のに余白offset-3を入れる-->
                     <form method="POST">
                         <br>
-                        <p style="color:red">削除してもよか？</p>
+                        <p sty左右le="color:red"><font size = "6" >削除してもよか？</font></p>
                         {% csrf_token %}
-                        <button class="btn my-2" type="submit">
-                            <img src={% static "img/削除.svg" %} alt="ロゴの表示" width="110" height="52"></button>
-                        <input type = "image" src={% static "img/削除.svg" %} alt="削除ボタンの表示" width="110" height="52">
+
+                        <input class="btn my-2" type = "image" src={% static "img/削除.svg" %} alt="削除ボタンの表示" width="200" height="90">
 
                         <a href="{% url 'photo:photo_detail' object.pk %}" >
-                            <img src={% static "img/キャンセル.svg" %} alt="ロゴの表示" width="160" height="45"></a>
-                </div>
+                            <img src={% static "img/キャンセル.svg" %} alt="ロゴの表示" width="180" height="75"></a>
             </div>
         </div>
         {% endblock %}
