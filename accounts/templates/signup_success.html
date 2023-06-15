@@ -3,13 +3,15 @@
 {%block title %}Registration Complete{% endblock %}
 
     {% block contents %}
+    {% load static %}
 
-    <div class="container">
+    <div class="container text-center">
         <div class="row">
-            <div class="col offset-4 py-4">
-                <h3>登録が完了しました</h3>
-
-                <p><a href="{% url 'accounts:login' %}">ログインはこちら</a><p>
+            <div class="col py-4">
+                <br>
+                    <h3>登録が完了しました</h3>
+                <br>
+                <p><a href="{% url 'accounts:login' %}"><font size = "5"> <img src={% static "img/ログインはこちら.svg" %} alt="ロゴの表示" width="150" height="50"></font></a><p>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <!--ベーステンプレートを適用する-->
 {% extends 'base.html' %}
-{% block title %}Mypage{% endblock %}
+{% block title %}マイページ{% endblock %}
 
     {% block contents %}
 
@@ -9,6 +9,7 @@
     <!--ユーザーの投稿件数を表示-->
     {% if user.is_authenticated %}
         <br>
+        {% load static %}
         <div style = "text-align:center">
             <h4>{{user.username}}さんのマイページ</h4>
             {% if object_list.count == 0 %}
@@ -16,7 +17,7 @@
             {% else %}
                 <p>投稿<strong>{{object_list.count}}</strong>件</p>
             {% endif %}
-            <a href = "{% url 'photo:post' %}">投稿する</a>
+                <a href = "{% url 'photo:post' %}"><img src={% static "img/投稿.svg" %} alt="ロゴの表示" width="130" height="70"></font></a>
         </div>
     <hr>
     {% endif %}

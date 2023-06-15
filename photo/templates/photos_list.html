@@ -14,7 +14,8 @@
             xmlns="http://www.w3.org/2000/svg"
             role="img" aria-label="Placeholder: Thumbnail"
             preserveAspectRatio="xMidYMid slice"
-            focusable="false">
+            focusable="false"
+            onclick="location.href='{% url 'photo:photo_detail' record.pk %}'">
             <title>Placeholder</title>
             <rect width="100%" height="100%" fill="#55595c"/>
             <!--<text>~</text>を削除-->
@@ -26,14 +27,16 @@
               <div class="btn-group">
                 <!--詳細ページを表示するボタン-->
                 <button type="button"
-                        class="btn btn-sm btn-outline-secondary"
+                        class="btn btn-sm btn-outline-secondary btn-view"
                         onclick="location.href='{% url 'photo:photo_detail' record.pk %}'">
-                        View</button>
+                        <font face="Comic Sans MS">
+                        View</font></button>
 
                 <button type="button" 
-                        class="btn btn-sm btn-outline-secondary"
+                        class="btn btn-sm btn-outline-secondary btn-view"
                         onclick = "location.href='{% url 'photo:photos_cat' category=record.category.id %}'">
-                        {{record.category.title}}</button>
+                        <font face="HGP創英角ｺﾞｼｯｸUB">
+                        {{record.category.title}}</font></button>
               </div>
               <!--投稿したユーザー名を出力-->
               <a href = "{% url 'photo:user_list' user=record.user.id %}">      
