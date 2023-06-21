@@ -37,17 +37,15 @@
       /* トップページに戻るを固定化する */
       .right-fixed-banner {
         position: fixed;
-        bottom: 7%;
+        bottom: 13%;
         right: 0;
         width: 150px;
         margin-right: 5%;
         text-align: center;
         line-height: 100px;
-      }
-      
-      .float-end mb-1 {
         font-size: 20px;
       }
+      
 
       /*ここまで*/
 
@@ -173,9 +171,9 @@
  
   <!-- ここをコメントアウトして、54行目を追加すると「トップページボタン」が画像の後ろに行く -->
   <div class="right-fixed-banner"> 
-    <p class="float-end mb-1">
-      <button type="button" class="btn "><a href="{% url 'photo:index'%}" class="text-white"><img src={% static "img/トップページに戻る.svg" %} alt="トップページに戻るボタン" width="150" height="40"></a></button>
-    </p>
+
+    <button type="button" class="btn "><a href="{% url 'photo:index'%}" class="text-white"><img src={% static "img/トップページに戻る.svg" %} alt="トップページに戻るボタン" width="150" height="40"></a></button>
+
   </div> 
   <!--ここまで-->
     <ul class = "list-inline text-center">
